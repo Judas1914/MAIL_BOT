@@ -2,7 +2,7 @@ from settings import *
 
 token = config['Telegram']['token']
 bot = telebot.TeleBot(token)
-chat_id = '-1001919822446'
+chat_id = config['chat']['id']
 
 mail = config_mail['Email']['mail']
 password = config_mail['Email']['pass']

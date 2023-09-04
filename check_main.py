@@ -1,13 +1,22 @@
 import subprocess
 import os
 
-command = subprocess.check_output("ps aux | grep python", shell=True)
-all_proc = command.decode('utf-8').split("\n") 
-finding_proc = False
+# Имя процесса, который нужно проверить
+process_name = "mail_main.py"
 
-for proc in all_proc:
-    if "mail_main" in proc:
-        finding_proc = True
+# Получить список всех процессов Python и поиск процесса с именем process_name
+try:
+    command = subprocess.check_output("ps aux | grep python", shell=True)
+    all_proc = command.decode('utf-8').split("\n")
+    finding_proc = False
 
-if finding_proc == False:
-    os.system("nohup source ~/Bot/MAIL_BOT/bin/activate && python mail_main.py")
+    for proc in all_proc:
+        if process_name in proc:
+            finding_proc = True
+            break
+
+    if not finding_proc:
+        # Процесс не найден, перезапустить его
+        os.system("source ~/Bot/MAIL_BOT/bin/activate && cd ~/Bot/MAIL_BOT && python mail_main.py")
+except Exception as e:
+    print(f"Ошибка: {e}")

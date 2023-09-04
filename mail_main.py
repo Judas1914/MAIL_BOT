@@ -9,7 +9,6 @@ if __name__ == '__main__':
         password = config_mail['Email']['pass']
         mail_ref = "вы пытаетесь войти в аккаунт с нового устройства"
         imap.login(mail, password)
-        imap.select("Steam")
 
         while True:
             imap.select("Steam")
@@ -35,7 +34,6 @@ if __name__ == '__main__':
                     bot.send_message(chat_id, God_txt)
                 time.sleep(10)
             time.sleep(10)
-
     except:
         logging.error(traceback.format_exc())
 

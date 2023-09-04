@@ -15,7 +15,6 @@ if __name__ == '__main__':
             status, email_ids = imap.search(None, 'UNSEEN')
             email_id_list = email_ids[0].split()
 
-            imap.logout()
 
             if len(email_id_list) > 0:
                 mail_readed = mail_reader(imap, email_ids)
@@ -35,6 +34,7 @@ if __name__ == '__main__':
                     bot.send_message(chat_id, God_txt)
                 time.sleep(10)
             time.sleep(10)
+            imap.logout()
     except:
         logging.error(traceback.format_exc())
 

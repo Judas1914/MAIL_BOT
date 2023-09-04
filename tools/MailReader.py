@@ -1,15 +1,13 @@
 from settings import *
 
-token = config['Telegram']['token']
-bot = telebot.TeleBot(token)
-chat_id = config['chat']['id']
 
-mail = config_mail['Email']['mail']
-password = config_mail['Email']['pass']
+
+
+
 
 mail_ref = "вы пытаетесь войти в аккаунт с нового устройства"
 
-def mail_reader():
+def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
     email_id_list = email_ids[0].split()
 
     if len(email_id_list) > 0:
@@ -39,33 +37,4 @@ def mail_reader():
         return(mail_txt)
 
 
-while True:
-    imap = imaplib.IMAP4_SSL("imap.mail.ru")
-
-    imap.login(mail, password)
-    imap.select("Steam")
-
-    status, email_ids = imap.search(None, 'UNSEEN')
-    email_id_list = email_ids[0].split()
-
-    imap.logout
-
-    if len(email_id_list) > 0:
-        mail_readed = mail_reader()
-        if mail_ref in " ".join(mail_readed):
-            God_txt = (' '.join(mail_readed[:2]) + "\n\n"
-
-                    + ' '.join(mail_readed[2:8]) + "\n"
-                    + ' '.join(mail_readed[8:11]) + "\n\n"
-
-                    + ' '.join(mail_readed[11:16]) + "\n"
-                    + ' '.join(mail_readed[16:18]) + "\n\n"
-
-                    + ' '.join(mail_readed[18:22]) + "\n"
-                    + ' '.join(mail_readed[22:24]) + "\n\n"
-
-                    + "Steam Guard: " + ''.join(mail_readed[26]))
-            bot.send_message(chat_id, God_txt)
-        time.sleep(10)
-    time.sleep(10)
 

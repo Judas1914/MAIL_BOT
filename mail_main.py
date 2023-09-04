@@ -1,11 +1,10 @@
-import logging
 from settings import *
 from tools import *
 
 
 if __name__ == '__main__':
-    while True:
-        try:
+    try:
+        while True:
             chat_id = config['chat']['id']
             mail = config_mail['Email']['mail']
             password = config_mail['Email']['pass']
@@ -19,7 +18,7 @@ if __name__ == '__main__':
             imap.logout
 
             if len(email_id_list) > 0:
-                mail_readed = mail_reader()
+                mail_readed = mail_reader(imap, email_ids)
                 if mail_ref in " ".join(mail_readed):
                     God_txt = (' '.join(mail_readed[:2]) + "\n\n"
 
@@ -36,8 +35,8 @@ if __name__ == '__main__':
                     bot.send_message(chat_id, God_txt)
                 time.sleep(10)
             time.sleep(10)
-        except:
-            logging.error(traceback.format_exc())
+    except:
+        logging.error(traceback.format_exc())
 
 
 

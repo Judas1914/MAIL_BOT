@@ -1,7 +1,5 @@
 from settings import *
 
-
-
 def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
     email_id_list = email_ids[0].split()
 

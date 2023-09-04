@@ -8,7 +8,7 @@ if __name__ == '__main__':
         mail = config_mail['Email']['mail']
         password = config_mail['Email']['pass']
         mail_ref = "вы пытаетесь войти в аккаунт с нового устройства"
-        
+
         while True:
             imap.login(mail, password)
             imap.select("Steam")

@@ -1,10 +1,6 @@
 from settings import *
 
 
-
-
-
-
 mail_ref = "вы пытаетесь войти в аккаунт с нового устройства"
 
 def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):

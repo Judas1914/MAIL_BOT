@@ -5,7 +5,7 @@ from aiogram.dispatcher.filters import Text
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 import telebot
-
+import traceback
 import imaplib
 import email
 from email.header import decode_header
@@ -37,3 +37,28 @@ def config_update():
     config_mail.read(mail_file)
 
 
+# Бот
+token = config['Telegram']['token']
+bot = telebot.TeleBot(token)
+
+# Почта
+imap = imaplib.IMAP4_SSL("imap.mail.ru")
+
+# Логгер
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    filename="logs.log",
+    format="%(asctime)s - %(module)s\n[%(levelname)s] %(funcName)s:\n %(lineno)d - %(message)s",
+    datefmt='%H:%M:%S',
+    encoding="utf-8"
+
+)
+
+"""
+Места где может произойти ошибка помечай как 
+try:
+    <блок кода>
+except:
+    logging.error(traceback.format_exc())
+"""

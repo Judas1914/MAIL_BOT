@@ -19,16 +19,22 @@ def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
         if message.is_multipart():
             for part in message.get_payload():
                 try:
+
+                    Flag = True
                     body = part.get_payload(decode=True).decode('UTF-8').split()
                     break
+
                 except:
+
+                    Flag = False
                     break
 
         mail_txt = []
         mail_inf = []
 
-        for i in range(27):
-            mail_txt.append(body[i])
+        if Flag:
+            for i in range(27):
+                mail_txt.append(body[i])
 
         return(mail_txt)
 

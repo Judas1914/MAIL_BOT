@@ -17,6 +17,6 @@ try:
 
     if not finding_proc:
         # Процесс не найден, перезапустить его
-        os.system("source ~/Bot/MAIL_BOT/bin/activate && cd ~/Bot/MAIL_BOT && python mail_main.py")
+        os.system("source ~/Bot/MAIL_BOT/bin/activate && cd ~/Bot/MAIL_BOT && nohup python mail_main.py &")
 except Exception as e:
     print(f"Ошибка: {e}")

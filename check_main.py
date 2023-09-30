@@ -12,11 +12,10 @@ python_executable = PATH + "/bin/python3"
 
 # Получить список всех процессов Python
 def is_process_running(process_name):
-    try:
-        for proc in psutil.process_iter(["pid", "name"]):
-            if process_name in proc.info["name"]:
-                return True
-        return False
+    for proc in psutil.process_iter(["pid", "name"]):
+        if process_name in proc.info["name"]:
+            return True
+    return False
 
 if not is_process_running(process_name):
     try:

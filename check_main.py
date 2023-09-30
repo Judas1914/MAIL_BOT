@@ -1,3 +1,4 @@
+from settings import *
 import subprocess
 import os
 
@@ -19,4 +20,5 @@ try:
         # Процесс не найден, перезапустить его
         os.system("source ~/Bot/MAIL_BOT/bin/activate && cd ~/Bot/MAIL_BOT && nohup python mail_main.py &")
 except Exception as e:
+    logging.error(traceback.format_exc())
     print(f"Ошибка: {e}")

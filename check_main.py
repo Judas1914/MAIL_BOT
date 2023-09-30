@@ -19,6 +19,6 @@ def is_process_running(process_name):
 
 if not is_process_running(process_name):
     try:
-        subprocess.chek_call([python_executable, scripts_path])
+        subprocess.check_call([python_executable, scripts_path])
     except:
         logging.error(traceback.format_exc())

@@ -1,24 +1,25 @@
 from settings import *
 import subprocess
 import os
+import psutil
+
+PATH = os.getcwd()
 
 # Имя процесса, который нужно проверить
 process_name = "mail_main.py"
+scripts_path = PATH + "/" + process_name
+python_executable = PATH + "/bin/python3"
 
-# Получить список всех процессов Python и поиск процесса с именем process_name
-try:
-    command = subprocess.check_output("ps aux | grep python", shell=True)
-    all_proc = command.decode('utf-8').split("\n")
-    finding_proc = False
+# Получить список всех процессов Python
+def is_process_running(process_name):
+    try:
+        for proc in psutil.process_iter("pid", "name"):
+            if process_name in proc.info["name"]:
+                return True
+        return False
 
-    for proc in all_proc:
-        if process_name in proc:
-            finding_proc = True
-            break
-
-    if not finding_proc:
-        # Процесс не найден, перезапустить его
-        os.system("source ~/Bot/MAIL_BOT/bin/activate && cd ~/Bot/MAIL_BOT && nohup python mail_main.py &")
-except Exception as e:
-    logging.error(traceback.format_exc())
-    print(f"Ошибка: {e}")
+if not is_process_running(process_name):
+    try:
+        subprocess.chek_call([python_executable, scripts_path])
+    except:
+        logging.error(traceback.format_exc())

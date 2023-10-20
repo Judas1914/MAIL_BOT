@@ -32,8 +32,7 @@ if __name__ == '__main__':
 
                             + "Steam Guard: " + ''.join(mail_readed[26]))
                     bot.send_message(chat_id, God_txt)
-                time.sleep(10)
-            time.sleep(10)
+            time.sleep(30)
     except:
         logging.error(traceback.format_exc())
         bot.send_message(config['meid']['id'], "Bot off")

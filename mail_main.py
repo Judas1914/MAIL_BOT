@@ -35,8 +35,8 @@ if __name__ == '__main__':
                 time.sleep(10)
             time.sleep(10)
     except:
-        bot.send_message(config['meid']['id'], "Bot off")
         logging.error(traceback.format_exc())
+        bot.send_message(config['meid']['id'], "Bot off")
 
 
 

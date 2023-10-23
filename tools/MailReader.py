@@ -38,5 +38,19 @@ def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
 
         return(mail_txt)
 
+def txt_form(mail_readed):
+    God_txt = (' '.join(mail_readed[:2]) + "\n\n"
+                + ' '.join(mail_readed[2:8]) + "\n"
+                + ' '.join(mail_readed[8:11]) + "\n\n"
+
+                + ' '.join(mail_readed[11:16]) + "\n"
+                + ' '.join(mail_readed[16:18]) + "\n\n"
+
+                + ' '.join(mail_readed[18:22]) + "\n"
+                + ' '.join(mail_readed[22:24]) + "\n\n"
+
+                + "Steam Guard: " + ''.join(mail_readed[26]))
+    return(God_txt)
+
 
 

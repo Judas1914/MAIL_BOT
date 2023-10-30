@@ -21,7 +21,7 @@ def is_process_running(process_name):
 
 while True:
 
-    cnt = 0
+    cnt = int(0)
     while cnt < 300:
         cnt += 1
 

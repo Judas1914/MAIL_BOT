@@ -3,7 +3,6 @@ from tools import *
 
 
 if __name__ == '__main__':
-    bot.send_message(config['meid']['id'], "Bot on")
     try:
         chat_id = config['chat']['id']
         mail = config_mail['Email']['mail']
@@ -24,7 +23,6 @@ if __name__ == '__main__':
                     bot.send_message(chat_id, txt)
     except:
         logging.error(traceback.format_exc())
-        bot.send_message(config['meid']['id'], "Bot off")
 
 
 

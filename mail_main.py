@@ -8,7 +8,7 @@ if __name__ == '__main__':
         chat_id = config['chat']['id']
         mail = config_mail['Email']['mail']
         password = config_mail['Email']['pass']
-        mail_ref = "вы пытаетесь войти в аккаунт с нового устройства"
+        mail_ref = ["вы пытаетесь войти в аккаунт с нового устройства","It looks like you are trying to log in from a new device"]
         imap.login(mail, password)
 
         while True:
@@ -19,9 +19,10 @@ if __name__ == '__main__':
 
             if len(email_id_list) > 0:
                 mail_readed = mail_reader(imap, email_ids)
-                if mail_ref in " ".join(mail_readed):
-                    txt = txt_form(mail_readed)
-                    bot.send_message(chat_id, txt)
+                for i in range(len(mail_ref)):
+                    if mail_ref[i] in " ".join(mail_readed):
+                        txt = txt_form(mail_readed)
+                        bot.send_message(chat_id, txt)
     except:
         bot.send_message(config['meid']['id'], "Bot off")
         logging.error(traceback.format_exc())

@@ -21,7 +21,7 @@ if __name__ == '__main__':
                 mail_readed = mail_reader(imap, email_ids)
                 for i in range(len(mail_ref)):
                     if mail_ref[i] in " ".join(mail_readed):
-                        txt = txt_form(mail_readed)
+                        txt = txt_form(mail_readed, i)
                         bot.send_message(chat_id, txt)
     except:
         bot.send_message(config['meid']['id'], "Bot off")

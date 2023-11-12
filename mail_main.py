@@ -3,7 +3,7 @@ from tools import *
 
 
 if __name__ == '__main__':
-    bot.send_message(config['meid']['id'], "Bot on")
+    # bot.send_message(config['meid']['id'], "Bot on")
     try:
         chat_id = config['chat']['id']
         mail = config_mail['Email']['mail']
@@ -22,10 +22,10 @@ if __name__ == '__main__':
                 for i in range(len(mail_ref)):
                     if mail_ref[i] in " ".join(mail_readed):
                         txt = txt_form(mail_readed, i)
-                        bot.send_message(chat_id, txt)
+                        # bot.send_message(chat_id, txt)
     except:
         bot.send_message(config['meid']['id'], "Bot off")
-        logging.error(traceback.format_exc())
+        # logging.error(traceback.format_exc())
 
 
 

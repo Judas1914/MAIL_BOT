@@ -66,9 +66,10 @@ def txt_form(mail_readed, i):
         if (''.join(mail_readed[34]) == "Code"):
             God_txt += "Steam Guard: " + ''.join(mail_readed[35])
         elif (''.join(mail_readed[34]) == "If"):
-            God_txt += "Steam Guard: " + ''.join(mail_readed[34])
+            God_txt += "Steam Guard: " + ''.join(mail_readed[33])
         else:
             God_txt += "Steam Guard: " + ''.join(mail_readed[34])
+        print(God_txt)
 
     return(God_txt)
 

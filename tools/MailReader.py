@@ -69,7 +69,6 @@ def txt_form(mail_readed, i):
             God_txt += "Steam Guard: " + ''.join(mail_readed[33])
         else:
             God_txt += "Steam Guard: " + ''.join(mail_readed[34])
-        print(God_txt)
 
     return(God_txt)
 

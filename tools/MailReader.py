@@ -39,6 +39,7 @@ def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
         return(mail_txt)
 
 def txt_form(mail_readed, i):
+    print(mail_readed)
     if (i == 0):
         God_txt = (' '.join(mail_readed[:2]) + "\n\n"
                     + ' '.join(mail_readed[2:8]) + "\n"
@@ -48,9 +49,9 @@ def txt_form(mail_readed, i):
                     + ' '.join(mail_readed[16:18]) + "\n\n"
 
                     + ' '.join(mail_readed[18:22]) + "\n"
-                    + ' '.join(mail_readed[22:24]) + "\n\n"
+                    + ' '.join(mail_readed[mail_readed.index("страны:"):mail_readed.index("Код")]) + "\n\n"
 
-                    + "Steam Guard: " + ''.join(mail_readed[26]))
+                    + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("доступа") + 1]))
     elif (i == 1):
         God_txt = (' '.join(mail_readed[:2]) + "\n\n"
 
@@ -61,15 +62,10 @@ def txt_form(mail_readed, i):
                     + ' '.join(mail_readed[21:27]) + "\n\n"
 
                     + ' '.join(mail_readed[27:30]) + "\n"
-                    + ' '.join(mail_readed[30:32]) + "\n\n")
+                    + ' '.join(mail_readed[mail_readed.index("made") + 2:mail_readed.index("Login")]) + "\n\n"
 
-        if (''.join(mail_readed[34]) == "Code"):
-            God_txt += "Steam Guard: " + ''.join(mail_readed[35])
-        elif (''.join(mail_readed[34]) == "If"):
-            God_txt += "Steam Guard: " + ''.join(mail_readed[33])
-        else:
-            God_txt += "Steam Guard: " + ''.join(mail_readed[34])
-
+                    + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("Code") + 1]))
+    print(God_txt)
     return(God_txt)
 
 

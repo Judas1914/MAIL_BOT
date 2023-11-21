@@ -39,7 +39,6 @@ def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
         return(mail_txt)
 
 def txt_form(mail_readed, i):
-    print(mail_readed)
     if (i == 0):
         God_txt = (' '.join(mail_readed[:2]) + "\n\n"
                     + ' '.join(mail_readed[2:8]) + "\n"
@@ -65,7 +64,7 @@ def txt_form(mail_readed, i):
                     + ' '.join(mail_readed[mail_readed.index("made") + 2:mail_readed.index("Login")]) + "\n\n"
 
                     + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("Code") + 1]))
-    print(God_txt)
+
     return(God_txt)
 
 

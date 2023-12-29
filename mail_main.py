@@ -8,7 +8,8 @@ if __name__ == '__main__':
         chat_id = config['chat']['id']
         mail = config_mail['Email']['mail']
         password = config_mail['Email']['pass']
-        mail_ref = ["вы пытаетесь войти в аккаунт с нового устройства","It looks like you are trying to log in from a new device"]
+        mail_ref = ["вы пытаетесь войти в аккаунт с нового устройства",
+                    "It looks like you are trying to log in from a new device"]
 
         imap.login(mail, password)
 

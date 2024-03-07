@@ -1,5 +1,12 @@
 from settings import *
 
+mail_clone = ['Dear', 'Pepe,', 'It', 'looks', 'like',
+              'you', 'are', 'trying', 'to', 'log', 'in', 'from',
+              'a', 'new', 'device.', 'Here', 'is', 'the', 'Steam',
+              'Guard', 'code', 'you', 'need', 'to', 'access', 'your',
+              'account:', 'Request', 'made', 'from', 'Space', 'station',
+              'Login', 'Code', '@@@@@', 'If']
+
 def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
     email_id_list = email_ids[0].split()
 
@@ -39,8 +46,10 @@ def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
         return(mail_txt)
 
 def txt_form(mail_readed, i):
+    God_txt = 0
     if (i == 0):
         God_txt = (' '.join(mail_readed[:2]) + "\n\n"
+
                     + ' '.join(mail_readed[2:8]) + "\n"
                     + ' '.join(mail_readed[8:11]) + "\n\n"
 
@@ -51,6 +60,7 @@ def txt_form(mail_readed, i):
                     + ' '.join(mail_readed[mail_readed.index("страны:"):mail_readed.index("Код")]) + "\n\n"
 
                     + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("доступа") + 1]))
+
     elif (i == 1):
         God_txt = (' '.join(mail_readed[:2]) + "\n\n"
 
@@ -64,6 +74,20 @@ def txt_form(mail_readed, i):
                     + ' '.join(mail_readed[mail_readed.index("made") + 2:mail_readed.index("Login")]) + "\n\n"
 
                     + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("Code") + 1]))
+
+    elif (i == 2): # - Тайский
+        God_txt = (''.join(mail_clone[0]) + " " + ''.join(mail_readed[1]) + "\n\n"
+
+            + ' '.join(mail_clone[2:11]) + "\n"
+            + ' '.join(mail_clone[11:15]) + "\n\n"
+
+            + ' '.join(mail_clone[15:21]) + "\n"
+            + ' '.join(mail_clone[21:27]) + "\n\n"
+
+            + ' '.join(mail_clone[27:30]) + "\n"
+            + ''.join("Thailand") + "\n\n"
+
+            + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("รหัสการเข้าสู่ระบบ") + 1]))
 
     return(God_txt)
 

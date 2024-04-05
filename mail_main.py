@@ -10,7 +10,9 @@ if __name__ == '__main__':
         password = config_mail['Email']['pass']
         mail_ref = ["вы пытаетесь войти в аккаунт с нового устройства",
                     "It looks like you are trying to log in from a new device",
-                    "ดูเหมือนว่าคุณพยายามที่จะเข้าสู่ระบบจากอุปกรณ์ใหม่"]
+                    "ดูเหมือนว่าคุณพยายามที่จะเข้าสู่ระบบจากอุปกรณ์ใหม่",
+                    "Parece que você está tentando iniciar a sessão a partir de um novo dispositivo",
+                    "Схоже, ви намагаєтеся ввійти з нового пристрою"]
 
         imap.login(mail, password)
 

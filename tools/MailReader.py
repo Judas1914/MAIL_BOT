@@ -40,7 +40,7 @@ def mail_reader(imap: imaplib.IMAP4_SSL, email_ids: list):
         mail_inf = []
 
         if Flag:
-            for i in range(36):
+            for i in range(40):
                 mail_txt.append(body[i])
 
         return(mail_txt)
@@ -78,16 +78,44 @@ def txt_form(mail_readed, i):
     elif (i == 2): # - Тайский
         God_txt = (''.join(mail_clone[0]) + " " + ''.join(mail_readed[1]) + "\n\n"
 
-            + ' '.join(mail_clone[2:11]) + "\n"
-            + ' '.join(mail_clone[11:15]) + "\n\n"
+                    + ' '.join(mail_clone[2:11]) + "\n"
+                    + ' '.join(mail_clone[11:15]) + "\n\n"
 
-            + ' '.join(mail_clone[15:21]) + "\n"
-            + ' '.join(mail_clone[21:27]) + "\n\n"
+                    + ' '.join(mail_clone[15:21]) + "\n"
+                    + ' '.join(mail_clone[21:27]) + "\n\n"
 
-            + ' '.join(mail_clone[27:30]) + "\n"
-            + ''.join("Thailand") + "\n\n"
+                    + ' '.join(mail_clone[27:30]) + "\n"
+                    + ''.join("Thailand") + "\n\n"
 
-            + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("รหัสการเข้าสู่ระบบ") + 1]))
+                    + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("รหัสการเข้าสู่ระบบ") + 1]))
+
+    elif (i == 3): # - Португальский
+        God_txt = (''.join(mail_clone[0]) + " " + ''.join(mail_readed[1]) + "\n\n"
+
+                    + ' '.join(mail_clone[2:11]) + "\n"
+                    + ' '.join(mail_clone[11:15]) + "\n\n"
+
+                    + ' '.join(mail_clone[15:21]) + "\n"
+                    + ' '.join(mail_clone[21:27]) + "\n\n"
+
+                    + ' '.join(mail_clone[27:30]) + "\n"
+                    + ' '.join(mail_readed[mail_readed.index("solicitação:"):mail_readed.index("autenticação") - 2]) + "\n\n"
+
+                    + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("autenticação") + 1]))
+
+    elif (i == 4): # - Украинский
+        God_txt = (''.join(mail_readed[0]) + " " + ''.join(mail_readed[1]) + "\n\n"
+
+                    + ' '.join(mail_readed[2:6]) + "\n"
+                    + ' '.join(mail_readed[6:9]) + "\n\n"
+
+                    + ' '.join(mail_readed[9:12]) + "\n"
+                    + ' '.join(mail_readed[15:20]) + "\n\n"
+
+                    + ' '.join(mail_readed[21:25]) + "\n"
+                    + ' '.join(mail_readed[mail_readed.index("цієї") + 2:mail_readed.index("Код")]) + "\n\n"
+
+                   + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("входу") + 1]))
 
     return(God_txt)
 

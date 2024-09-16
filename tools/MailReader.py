@@ -127,7 +127,7 @@ def txt_form(mail_readed, i):
                     + ' '.join(mail_clone[21:27]) + "\n\n"
 
                     + ' '.join(mail_clone[27:30]) + "\n"
-                    + ' '.join(mail_readed[mail_readed.index("yer:")+1:mail_readed.index("Giriş")]) + "\n\n"
+                    + ' '.join(mail_readed[mail_readed.index("yer:") + 1:mail_readed.index("Giriş")]) + "\n\n"
 
                     + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("Kodu") + 1]))
 

@@ -12,7 +12,8 @@ if __name__ == '__main__':
                     "It looks like you are trying to log in from a new device",
                     "ดูเหมือนว่าคุณพยายามที่จะเข้าสู่ระบบจากอุปกรณ์ใหม่",
                     "Parece que você está tentando iniciar a sessão a partir de um novo dispositivo",
-                    "Схоже, ви намагаєтеся ввійти з нового пристрою"]
+                    "Схоже, ви намагаєтеся ввійти з нового пристрою",
+                    "göre yeni bir aygıttan giriş yapmaya çalışıyorsunuz"]
 
         imap.login(mail, password)
 

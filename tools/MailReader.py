@@ -117,6 +117,20 @@ def txt_form(mail_readed, i):
 
                    + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("входу") + 1]))
 
+    elif (i == 5): # - Турецкий
+        God_txt = (''.join(mail_clone[0]) + " " + ''.join(mail_readed[1]) + "\n\n"
+
+                    + ' '.join(mail_clone[2:11]) + "\n"
+                    + ' '.join(mail_clone[11:15]) + "\n\n"
+
+                    + ' '.join(mail_clone[15:21]) + "\n"
+                    + ' '.join(mail_clone[21:27]) + "\n\n"
+
+                    + ' '.join(mail_clone[27:30]) + "\n"
+                    + ' '.join(mail_readed[mail_readed.index("yer:")+1:mail_readed.index("Giriş")]) + "\n\n"
+
+                    + "Steam Guard: " + ''.join(mail_readed[mail_readed.index("Kodu") + 1]))
+
     return(God_txt)
 
 

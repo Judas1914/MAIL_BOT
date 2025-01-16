@@ -7,6 +7,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import telebot
 import traceback
 import imaplib
+import quopri
 import email
 from email.header import decode_header
 import base64
